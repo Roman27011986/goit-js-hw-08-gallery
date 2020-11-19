@@ -4,13 +4,15 @@ let targetIndex = 0;
 
 images.forEach((img,i)=> {
     const galleryitemRef =document.createElement('li')
-     const gallerylinkRef = document.createElement('a')
+    const gallerylinkRef = document.createElement('a')
     const galleryimageRef = document.createElement('img')
+
     galleryitemRef.classList.add('gallery__item')
     gallerylinkRef.classList.add('gallery__link')
     galleryimageRef.classList.add('gallery__image')
     galleryimageRef.setAttribute('data-source', img.original)
-    galleryimageRef.setAttribute('data-index',[i])
+    galleryimageRef.setAttribute('data-index', [i])
+    
     galleryimageRef.src = img.preview
     galleryimageRef.alt = img.description
     gallerylinkRef.href = img.original
@@ -18,13 +20,11 @@ images.forEach((img,i)=> {
     gallerylinkRef.appendChild(galleryimageRef)
     galleryitemRef.appendChild(gallerylinkRef)
     galleryRef.appendChild(galleryitemRef)
-    
-    
 })
 
 const openModal = document.querySelector('.lightbox');
 const imgModal = document.querySelector('.lightbox__image');
-// const closeModal = document.querySelector('.lightbox__button');
+
 galleryRef.addEventListener('click',onGalleryClick )
 openModal.addEventListener('click', clsModal)
 
@@ -38,6 +38,7 @@ function clsModal(event) {
         return
     }
     openModal.classList.remove('is-open')
+    
     }
 
 
@@ -52,24 +53,17 @@ function onGalleryClick(event) {
    
     targetIndex = event.target.dataset.index
     targetIndex = Number(targetIndex) 
-  
-   
 }
-
- 
-    window.addEventListener('keydown', event => {
-    if (event.code === 'ArrowRight') {
+  
+window.addEventListener('keydown', event => {
+    if (event.code === 'ArrowRight' ) {
         targetIndex += 1
         imgModal.src = images[targetIndex].original  
-    
     }
-    })
+})
  window.addEventListener('keydown', event => {
-    if (event.code === 'ArrowLeft') {
+    if (event.code === 'ArrowLeft' ) {
         targetIndex -= 1
         imgModal.src = images[targetIndex].original 
-        
-    
-    }
+    } 
  })
-console.log(images)
