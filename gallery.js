@@ -2,7 +2,10 @@ import images from './gallery-items.js';
 const galleryRef = document.querySelector('.gallery');
 let targetIndex = 0;
 
-images.forEach((img,i)=> {
+
+
+
+const imgMap = images.map((img,i)=> {
     const galleryitemRef =document.createElement('li')
     const gallerylinkRef = document.createElement('a')
     const galleryimageRef = document.createElement('img')
@@ -18,9 +21,11 @@ images.forEach((img,i)=> {
     gallerylinkRef.href = img.original
     
     gallerylinkRef.appendChild(galleryimageRef)
-    galleryitemRef.appendChild(gallerylinkRef)
-    galleryRef.appendChild(galleryitemRef)
+  return galleryitemRef.appendChild(gallerylinkRef)
+    
 })
+galleryRef.append(...imgMap)
+
 
 const openModal = document.querySelector('.lightbox');
 const imgModal = document.querySelector('.lightbox__image');
@@ -68,4 +73,4 @@ window.addEventListener('keydown', event => {
     } 
  })
 
- console.log(targetIndex)
+ 
