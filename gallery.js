@@ -2,11 +2,8 @@ import images from './gallery-items.js';
 const galleryRef = document.querySelector('.gallery');
 let targetIndex = 0;
 
-
-
-
 const imgMap = images.map((img,i)=> {
-    const galleryitemRef =document.createElement('li')
+    const galleryitemRef = document.createElement('li')
     const gallerylinkRef = document.createElement('a')
     const galleryimageRef = document.createElement('img')
 
