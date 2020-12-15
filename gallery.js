@@ -36,6 +36,9 @@ function clsModal(event) {
   if (event.target === event.currentTarget) {
     openModalRef.classList.remove('is-open');
   }
+}
+
+function clsModalEsc() {
   window.removeEventListener('keydown', onPressEsscape);
   openModalRef.classList.remove('is-open');
 }
@@ -53,7 +56,7 @@ function opnModalFunc(event) {
 
 function onPressEsscape(event) {
   if (event.code === 'Escape') {
-    clsModal();
+    clsModalEsc();
   } else if (event.code === 'ArrowRight' && images.length - 1 > targetIndex) {
     targetIndex += 1;
     imgModal.src = images[targetIndex].original;
