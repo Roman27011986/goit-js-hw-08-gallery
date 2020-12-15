@@ -1,7 +1,9 @@
 import images from './gallery-items.js';
 const galleryRef = document.querySelector('.js-gallery');
 const openModalRef = document.querySelector('.js-lightbox');
-const closeModalBtnRef = document.querySelector('.lightbox__button');
+const closeModalBtnRef = document.querySelector(
+  'button[data-action="close-lightbox"]',
+);
 const imgModal = document.querySelector('.lightbox__image');
 let targetIndex = 0;
 
@@ -10,22 +12,22 @@ galleryRef.addEventListener('click', opnModalFunc);
 closeModalBtnRef.addEventListener('click', clsModal);
 
 const imgMap = images.map((img, i) => {
-  const galleryitemRef = document.createElement('li');
-  const gallerylinkRef = document.createElement('a');
-  const galleryimageRef = document.createElement('img');
+  const galleryItemRef = document.createElement('li');
+  const galleryLinkRef = document.createElement('a');
+  const galleryImageRef = document.createElement('img');
 
-  galleryitemRef.classList.add('gallery__item');
-  gallerylinkRef.classList.add('gallery__link');
-  galleryimageRef.classList.add('gallery__image');
-  galleryimageRef.setAttribute('data-source', img.original);
-  galleryimageRef.setAttribute('data-index', [i]);
+  galleryItemRef.classList.add('gallery__item');
+  galleryLinkRef.classList.add('gallery__link');
+  galleryImageRef.classList.add('gallery__image');
+  galleryImageRef.setAttribute('data-source', img.original);
+  galleryImageRef.setAttribute('data-index', [i]);
 
-  galleryimageRef.src = img.preview;
-  galleryimageRef.alt = img.description;
-  gallerylinkRef.href = img.original;
+  galleryImageRef.src = img.preview;
+  galleryImageRef.alt = img.description;
+  galleryLinkRef.href = img.original;
 
-  gallerylinkRef.appendChild(galleryimageRef);
-  return galleryitemRef.appendChild(gallerylinkRef);
+  galleryLinkRef.appendChild(galleryImageRef);
+  return galleryItemRef.appendChild(galleryLinkRef);
 });
 galleryRef.append(...imgMap);
 
