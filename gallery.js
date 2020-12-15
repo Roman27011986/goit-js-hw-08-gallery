@@ -4,12 +4,13 @@ const openModalRef = document.querySelector('.js-lightbox');
 const closeModalBtnRef = document.querySelector(
   'button[data-action="close-lightbox"]',
 );
+const overlayRef = document.querySelector('.lightbox__overlay');
 const imgModal = document.querySelector('.lightbox__image');
 let targetIndex = 0;
 
 galleryRef.addEventListener('click', opnModalFunc);
-
 closeModalBtnRef.addEventListener('click', clsModal);
+overlayRef.addEventListener('click', clsModal);
 
 const imgMap = images.map((img, i) => {
   const galleryItemRef = document.createElement('li');
