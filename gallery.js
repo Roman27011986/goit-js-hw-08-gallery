@@ -38,7 +38,7 @@ function clsModal() {
 
 function opnModalFunc(event) {
   event.preventDefault();
-
+  window.addEventListener('keydown', onPressEsscape);
   openModalRef.classList.add('is-open');
   imgModal.src = '';
   imgModal.src = event.target.dataset.source;
@@ -47,7 +47,7 @@ function opnModalFunc(event) {
   targetIndex = Number(targetIndex);
 }
 
-window.addEventListener('keydown', event => {
+function onPressEsscape(event) {
   if (event.code === 'Escape') {
     clsModal();
   } else if (event.code === 'ArrowRight' && images.length - 1 > targetIndex) {
@@ -57,4 +57,4 @@ window.addEventListener('keydown', event => {
     targetIndex -= 1;
     imgModal.src = images[targetIndex].original;
   }
-});
+}
