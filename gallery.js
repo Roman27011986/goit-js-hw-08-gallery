@@ -32,7 +32,10 @@ const imgMap = images.map((img, i) => {
 });
 galleryRef.append(...imgMap);
 
-function clsModal() {
+function clsModal(event) {
+  if (event.target === event.currentTarget) {
+    openModalRef.classList.remove('is-open');
+  }
   window.removeEventListener('keydown', onPressEsscape);
   openModalRef.classList.remove('is-open');
 }
