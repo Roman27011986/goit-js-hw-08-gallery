@@ -22,7 +22,7 @@ const imgMap = images.map((img, i) => {
 });
 galleryRef.append(...imgMap);
 
-const openModal = document.querySelector('.lightbox');
+const openModal = document.querySelector('.js-lightbox');
 const imgModal = document.querySelector('.lightbox__image');
 
 galleryRef.addEventListener('click', onGalleryClick);
@@ -33,7 +33,9 @@ window.addEventListener('keydown', event => {
     openModal.classList.remove('is-open');
   }
 });
+
 function clsModal(event) {
+  console.log(event.target);
   if (event.target.nodeName === 'IMG') {
     return;
   }
