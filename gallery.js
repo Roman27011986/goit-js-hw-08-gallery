@@ -1,6 +1,13 @@
 import images from './gallery-items.js';
-const galleryRef = document.querySelector('.gallery');
+const galleryRef = document.querySelector('.js-gallery');
+const openModalRef = document.querySelector('.js-lightbox');
+const closeModalBtnRef = document.querySelector('.lightbox__button');
+const imgModal = document.querySelector('.lightbox__image');
 let targetIndex = 0;
+
+galleryRef.addEventListener('click', opnModalFunc);
+
+closeModalBtnRef.addEventListener('click', clsModal);
 
 const imgMap = images.map((img, i) => {
   const galleryitemRef = document.createElement('li');
@@ -22,38 +29,26 @@ const imgMap = images.map((img, i) => {
 });
 galleryRef.append(...imgMap);
 
-const openModal = document.querySelector('.js-lightbox');
-const imgModal = document.querySelector('.lightbox__image');
-
-galleryRef.addEventListener('click', onGalleryClick);
-openModal.addEventListener('click', clsModal);
-
-window.addEventListener('keydown', event => {
-  if (event.code === 'Escape') {
-    openModal.classList.remove('is-open');
-  }
-});
-
-function clsModal(event) {
-  console.log(event.target);
-  if (event.target.nodeName === 'IMG') {
-    return;
-  }
-  openModal.classList.remove('is-open');
+function clsModal() {
+  openModalRef.classList.remove('is-open');
 }
 
-function onGalleryClick(event) {
+function opnModalFunc(event) {
   event.preventDefault();
-  if (event.target.nodeName !== 'IMG') {
-    return;
-  }
-  openModal.classList.add('is-open');
+
+  openModalRef.classList.add('is-open');
   imgModal.src = '';
   imgModal.src = event.target.dataset.source;
 
   targetIndex = event.target.dataset.index;
   targetIndex = Number(targetIndex);
 }
+
+window.addEventListener('keydown', event => {
+  if (event.code === 'Escape') {
+    openModalRef.classList.remove('is-open');
+  }
+});
 
 window.addEventListener('keydown', event => {
   if (event.code === 'ArrowRight' && images.length - 1 > targetIndex) {
