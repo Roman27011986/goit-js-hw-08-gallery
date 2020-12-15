@@ -36,11 +36,6 @@ function clsModal(event) {
   if (event.target === event.currentTarget) {
     openModalRef.classList.remove('is-open');
   }
-  if (event.currentTarget.nodeName === 'BUTTON') {
-    openModalRef.classList.remove('is-open');
-  }
-
-  console.log(event.target.nodeName);
 }
 
 function clsModalEsc() {
