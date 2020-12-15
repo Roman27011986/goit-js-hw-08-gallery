@@ -49,7 +49,7 @@ function opnModalFunc(event) {
 
   if (event.target.nodeName === 'IMG') {
     openModalRef.classList.add('is-open');
-    imgModal.src = '';
+    imgModal.removeAttribute('src');
     imgModal.src = event.target.dataset.source;
 
     targetIndex = event.target.dataset.index;
