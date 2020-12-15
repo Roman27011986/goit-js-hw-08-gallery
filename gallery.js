@@ -35,12 +35,14 @@ galleryRef.append(...imgMap);
 function clsModal(event) {
   if (event.target === event.currentTarget) {
     openModalRef.classList.remove('is-open');
+    imgModal.removeAttribute('src');
   }
 }
 
 function clsModalEsc() {
   window.removeEventListener('keydown', onPressEsscape);
   openModalRef.classList.remove('is-open');
+  imgModal.removeAttribute('src');
 }
 
 function opnModalFunc(event) {
@@ -49,7 +51,7 @@ function opnModalFunc(event) {
 
   if (event.target.nodeName === 'IMG') {
     openModalRef.classList.add('is-open');
-    imgModal.removeAttribute('src');
+
     imgModal.src = event.target.dataset.source;
 
     targetIndex = event.target.dataset.index;
