@@ -46,12 +46,15 @@ function clsModalEsc() {
 function opnModalFunc(event) {
   event.preventDefault();
   window.addEventListener('keydown', onPressEsscape);
-  openModalRef.classList.add('is-open');
-  imgModal.src = '';
-  imgModal.src = event.target.dataset.source;
 
-  targetIndex = event.target.dataset.index;
-  targetIndex = Number(targetIndex);
+  if (event.target.nodeName === 'IMG') {
+    openModalRef.classList.add('is-open');
+    imgModal.src = '';
+    imgModal.src = event.target.dataset.source;
+
+    targetIndex = event.target.dataset.index;
+    targetIndex = Number(targetIndex);
+  }
 }
 
 function onPressEsscape(event) {
