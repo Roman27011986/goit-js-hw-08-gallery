@@ -49,7 +49,7 @@ function opnModalFunc(event) {
 
 window.addEventListener('keydown', event => {
   if (event.code === 'Escape') {
-    openModalRef.classList.remove('is-open');
+    clsModal();
   } else if (event.code === 'ArrowRight' && images.length - 1 > targetIndex) {
     targetIndex += 1;
     imgModal.src = images[targetIndex].original;
