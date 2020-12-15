@@ -28,7 +28,8 @@ const imgMap = images.map((img, i) => {
   galleryLinkRef.href = img.original;
 
   galleryLinkRef.appendChild(galleryImageRef);
-  return galleryItemRef.appendChild(galleryLinkRef);
+  galleryItemRef.appendChild(galleryLinkRef);
+  return galleryItemRef;
 });
 galleryRef.append(...imgMap);
 
