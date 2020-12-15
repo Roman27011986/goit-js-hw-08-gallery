@@ -33,6 +33,7 @@ const imgMap = images.map((img, i) => {
 galleryRef.append(...imgMap);
 
 function clsModal() {
+  window.removeEventListener('keydown', onPressEsscape);
   openModalRef.classList.remove('is-open');
 }
 
