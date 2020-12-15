@@ -47,17 +47,10 @@ function opnModalFunc(event) {
 window.addEventListener('keydown', event => {
   if (event.code === 'Escape') {
     openModalRef.classList.remove('is-open');
-  }
-});
-
-window.addEventListener('keydown', event => {
-  if (event.code === 'ArrowRight' && images.length - 1 > targetIndex) {
+  } else if (event.code === 'ArrowRight' && images.length - 1 > targetIndex) {
     targetIndex += 1;
     imgModal.src = images[targetIndex].original;
-  }
-});
-window.addEventListener('keydown', event => {
-  if (event.code === 'ArrowLeft' && targetIndex > 0) {
+  } else if (event.code === 'ArrowLeft' && targetIndex > 0) {
     targetIndex -= 1;
     imgModal.src = images[targetIndex].original;
   }
